@@ -72,7 +72,8 @@
         android:layout_margin="16dp"
         app:fabSize="normal"
         android:src="@drawable/btn_add"
-        android:backgroundTint="@color/colorPrimary"/>
+        android:backgroundTint="@color/colorPrimary"
+        android:onClick="clickBtnFab"/>
 
 
 
