@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/g1_Account">
+        <item
+            android:id="@+id/drawerMenu1_myAccount"
+            android:title="내 계정"/>
+        <item
+            android:id="@+id/drawerMenu2_favList"
+            android:title="My 맛집 List"/>
+
+    </group>
+
+
+    <group android:id="@+id/g2_Food">
+        <item
+            android:id="@+id/drawerMenu3_foodKorean"
+            android:title="한식"/>
+        <item
+            android:id="@+id/drawerMenu4_foodChinese"
+            android:title="중식"/>
+        <item
+            android:id="@+id/drawerMenu4_foodJapanese"
+            android:title="일식"/>
+        <item
+            android:id="@+id/drawerMenu4_foodWestern"
+            android:title="양식"/>
+        <item
+            android:id="@+id/drawerMenu4_foodSchoolFood"
+            android:title="분식"/>
+        <item
+            android:id="@+id/drawerMenu4_foodCafe"
+            android:title="카페"/>
+        <item
+            android:id="@+id/drawerMenu4_foodPub"
+            android:title="펍"/>
+
+    </group>
+
+
+
+
+
+</menu>
