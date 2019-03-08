@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.Appbar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentTop="true"
+            app:layout_scrollFlags="scroll">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--로고-->
+                <ImageView
+                    android:id="@+id/toolbar_title_iv"
+                    android:layout_width="130dp"
+                    android:layout_height="56dp"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="3dp"
+                    android:src="@drawable/logo_whatiate"/>
+
+
+                <!--서치버튼-->
+                <ImageView
+                    android:id="@+id/btnSearch"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="22dp"
+                    android:src="@drawable/btn_search"
+                    android:onClick="clickBtnSearch"/>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    
+    <!--내용-->
+
+    <!--recyclerView *layoutManager-->
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="16dp"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        android:orientation="vertical">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <!--플로팅 액션버튼-->
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_margin="16dp"
+        app:fabSize="normal"
+        android:src="@drawable/btn_add"
+        android:backgroundTint="@color/colorPrimary"/>
+
+
+
+
+
+</LinearLayout>

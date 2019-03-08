@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    app:contentPaddingTop="4dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp">
+
+
+    <!-- 여기부터 꾸미기-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <!--이미지-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivFoodPic"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_alignParentTop="true"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/f01_apetizer"/>
+
+        </RelativeLayout>
+
+
+        <!--텍스트-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--이 부분 레이아웃은 구글 머티리얼 참고 -->
+            <TextView
+                android:id="@+id/tvResName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="식당이름"
+                android:singleLine="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="14dp"
+                android:textColor="@color/colorNavIcon"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2019 0308"
+                android:singleLine="true"
+                android:layout_toRightOf="@+id/tvResName"
+                android:layout_marginLeft="265dp"
+                android:textSize="10sp"
+                android:textColor="@color/colorNavIcon"
+
+                />
+
+            <TextView
+                android:id="@+id/tvMemo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="내용 한줄씩만 주르륵 나오게"
+                android:layout_below="@+id/tvResName"
+                android:singleLine="true"
+                android:textStyle="bold"
+                android:textColor="@color/fontDarkBlack"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="2dp"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvHash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="해쉬태그 #맛있어 #디저트"
+                android:layout_below="@+id/tvMemo"
+                android:singleLine="true"
+                android:textColor="@color/colorNavIcon"
+                android:layout_marginLeft="14dp"
+                android:layout_marginTop="8dp"
+                android:textSize="10sp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>
