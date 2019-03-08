@@ -64,7 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter {
             });
         }
         else{
-            Glide.with(context).load(R.drawable.ic_launcher_background).into(ivFoodPic);}
+            Glide.with(context).load(R.drawable.ic_launcher_background).into(ivFoodPic);}3
 
         holder.tvResName.setText(picItem.getResName());
         holder.tvMemo.setText(picItem.getMemo());
