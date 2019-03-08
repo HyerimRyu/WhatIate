@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "383255782402",
+    "firebase_url": "https://whatiate-5eb75.firebaseio.com",
+    "project_id": "whatiate-5eb75",
+    "storage_bucket": "whatiate-5eb75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383255782402:android:1f42e355237e307c",
+        "android_client_info": {
+          "package_name": "kr.co.teada.whatiate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383255782402-tu55qclj4r0im25e7krb3bm29n53l3v6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4xObX9DHndCCBlj0dyb6ems0neBqJiDM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void clickBtnSearch(View view) {
+        //search Avtivity 이동
     }
 
 
