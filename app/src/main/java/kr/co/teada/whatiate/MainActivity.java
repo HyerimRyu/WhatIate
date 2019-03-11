@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,9 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
 
+    //Drawer
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
+
 
 
     @Override
@@ -68,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
         drawerToggle=new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.app_name, R.string.app_name);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
+
+
+//        String iVDrawerProfile=G.profileUrl;
+//        String tvDrawerNickName=G.nickName;
+
 
     }//end of onCreate
 
@@ -110,6 +118,11 @@ public class MainActivity extends AppCompatActivity {
     public void clickBtnFab(View view) {
         //갤러리 이동
         openGallery();
+
+        Intent intent=new Intent(this, AddActivity.class);
+        startActivity(intent);
+        finish();
+
 
 
     }

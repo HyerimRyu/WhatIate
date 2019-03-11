@@ -40,6 +40,13 @@ public class WelcomActivity extends AppCompatActivity {
         ivProfile=findViewById(R.id.iv_profile);
 
         loadData();
+
+        //그 전 사용 기록이 있으면 바로 메인 열어
+        if (G.nickName != null){
+            Intent intent=new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }//end of onCreate
 
 
@@ -71,14 +78,9 @@ public class WelcomActivity extends AppCompatActivity {
 
         //프로필 이미지 파이어베이스 저장소에 업로드: 그래야 여러군데서 이미지 프로필 사용가능
         saveData();
-
-        if (G.nickName !=null){
-            Intent intent=new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-
     }
+
+
 
     private void saveData() {
         //프로필 이미지 파이어베이스저장소에 업로드
@@ -101,13 +103,14 @@ public class WelcomActivity extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         //firebase 저장소에 있는 이미지 다운로드 주소 문자열로
                         G.profileUrl=uri.toString();
-                        Toast.makeText(WelcomActivity.this, "프로필 이미지 저장 완료", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(WelcomActivity.this, "프로필 저장 완료", Toast.LENGTH_SHORT).show();
 
                         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
                         DatabaseReference profileRef=firebaseDatabase.getReference("profiles");
 
                         profileRef.child(G.nickName).setValue(G.profileUrl);
 
+                        //핸드폰에 영구적으로 닉네임과 프로필 이미지 경로 저장
                         SharedPreferences pref=getSharedPreferences("account", MODE_PRIVATE);
                         SharedPreferences.Editor editor=pref.edit();
 

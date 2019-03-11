@@ -22,6 +22,10 @@
     <string name="upload_success">업로드 성공</string>
     <string name="upload_fail">업로드 실패</string>
 
+    <!--hint-->
+    <string name="upload_text">내용을 입력하세요</string>
+    <string name="upload_resName">식당명</string>
+
 
     <!--Toolbar-->
     <string name="back">Back</string>
