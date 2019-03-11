@@ -29,6 +29,7 @@ public class WelcomActivity extends AppCompatActivity {
     CircleImageView ivProfile;
 
     Uri imgUri;
+    FirebaseStorage firebaseStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,16 +77,17 @@ public class WelcomActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+
     }
 
     private void saveData() {
         //프로필 이미지 파이어베이스저장소에 업로드
         if (imgUri==null) return;
 
-        FirebaseStorage firebaseStorage=FirebaseStorage.getInstance();
+        firebaseStorage=FirebaseStorage.getInstance();
 
         SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
-        final String fileName=sdf.format(new Date()+".png");
+        String fileName=sdf.format( new Date() )+".png";
 
         final StorageReference imgRef=firebaseStorage.getReference("profileImages/"+fileName);
 
