@@ -22,6 +22,11 @@
         <item name="colorControlNormal">#5D5D5D</item>
     </style>
 
+    <!-- 툴바 -->
+    <style name="AppTheme.Toolbar">
+        <item name="colorControlNormal">@color/colorWhite</item>
+    </style>
+
 
     <style name="BottomStyle" parent="Widget.AppCompat.Button.Colored">
         <item name="colorButtonNormal">@color/colorWhite</item>

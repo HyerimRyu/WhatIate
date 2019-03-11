@@ -27,21 +27,22 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:layout_alignParentTop="true"
-            app:layout_scrollFlags="scroll">
+            app:layout_scrollFlags="scroll"
+            android:theme="@style/AppTheme.Toolbar">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <!--로고-->
-                <ImageView
+                <TextView
                     android:id="@+id/toolbar_title_iv"
-                    android:layout_width="130dp"
-                    android:layout_height="56dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_margin="3dp"
-                    android:src="@drawable/logo_whatiate"/>
-
+                    android:text="What I ate"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30sp"/>
 
                 <!--서치버튼-->
                 <ImageView
