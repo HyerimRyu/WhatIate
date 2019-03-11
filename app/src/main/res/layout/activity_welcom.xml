@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomActivity">
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"
+        android:textColor="@color/colorDarkGray"
+        android:layout_marginTop="60dp"/>
+
+    <TextView
+        android:id="@+id/welcomeText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_text"
+        android:layout_centerHorizontal="true"
+        android:textSize="14sp"
+        android:textColor="@color/colorNavIcon"
+        android:layout_below="@+id/welcomeText"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:maxLength="10"
+        android:layout_centerInParent="true"
+        android:hint="input nick name"
+        android:gravity="center"
+        android:inputType="text"
+        android:background="@drawable/back_et_nickname"
+        android:padding="8dp"
+        android:textCursorDrawable="@drawable/et_name_cursor"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/profile_img"
+        android:layout_above="@+id/et_name"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:onClick="clickImage"/>
+
+    <ImageView
+        android:id="@+id/btn_next"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/direction_right"
+        android:layout_below="@+id/et_name"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="250dp"
+        android:onClick="clickNext"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btn_next"
+        android:textColor="@color/colorLightGray"/>
+
+
+
+</RelativeLayout>

@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">WhatIate</string>
 
+    <!--welcome-->
+    <string name="welcome">반갑습니다!</string>
+    <string name="welcome_text">내 계정에서 사용할\n닉네임과 프로필 사진을\n설정해주세요.</string>
+
     <!--Drawer-->
     <string name="account">내 계정</string>
     <string name="favlist">My List</string>
@@ -21,5 +25,8 @@
 
     <!--Toolbar-->
     <string name="back">Back</string>
+
+
+    <string name="next">다음</string>
 
 </resources>
