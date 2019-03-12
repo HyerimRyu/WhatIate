@@ -110,7 +110,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         public void clickBtnSearch(View view) {
-        //search Avtivity 이동
+
+        Intent intent=new Intent(this,SearchActivity.class);
+        startActivity(intent);
+        finish();
+
     }
 
 

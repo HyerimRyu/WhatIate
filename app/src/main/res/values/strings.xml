@@ -33,4 +33,8 @@
 
     <string name="next">다음</string>
 
+    <!--searchView-->
+    <string name="search_title">search</string>
+    <string name="abc_search_hint">무엇을 찾고 계세요?</string>
+
 </resources>
