@@ -13,10 +13,10 @@
 
         <ImageView
             android:id="@+id/introLogo"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/ate_logo_w_smile"/>
+            android:src="@drawable/w_intro_logo_smile"/>
 
         <TextView
             android:layout_width="wrap_content"

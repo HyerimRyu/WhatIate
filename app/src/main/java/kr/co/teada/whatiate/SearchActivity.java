@@ -7,6 +7,8 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -32,5 +34,7 @@ public class SearchActivity extends AppCompatActivity {
         });
 
     }//end of onCreate
+
+
 
 }//end of SearchActivity
