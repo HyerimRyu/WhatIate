@@ -6,6 +6,9 @@
             android:id="@+id/drawerMenu1_myAccount"
             android:title="@string/account"/>
         <item
+            android:id="@+id/whatIeat"
+            android:title="오늘 뭐 먹지?"/>
+        <item
             android:id="@+id/drawerMenu2_favList"
             android:title="@string/favlist"/>
     </group>

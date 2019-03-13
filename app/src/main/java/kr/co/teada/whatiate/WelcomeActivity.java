@@ -23,7 +23,7 @@ import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class WelcomActivity extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     EditText etName;
     CircleImageView ivProfile;
@@ -34,14 +34,14 @@ public class WelcomActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcom);
+        setContentView(R.layout.activity_welcome);
 
         etName=findViewById(R.id.et_name);
         ivProfile=findViewById(R.id.iv_profile);
 
         loadData();
 
-        //그 전 사용 기록이 있으면 바로 메인 열어
+        //그 전 사용 기록이 있으면 바로 메인 열어 ---> 실제 마켓에 올릴때는 이 코드 쓰기 //파이어베이스 DB 등록성공. 이미지 계정이랑 연결
         if (G.nickName != null){
             Intent intent=new Intent(this, MainActivity.class);
             startActivity(intent);
@@ -103,7 +103,7 @@ public class WelcomActivity extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         //firebase 저장소에 있는 이미지 다운로드 주소 문자열로
                         G.profileUrl=uri.toString();
-                        Toast.makeText(WelcomActivity.this, "프로필 저장 완료", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(WelcomeActivity.this, "프로필 저장 완료", Toast.LENGTH_SHORT).show();
 
                         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
                         DatabaseReference profileRef=firebaseDatabase.getReference("profiles");
@@ -119,7 +119,7 @@ public class WelcomActivity extends AppCompatActivity {
 
                         editor.commit(); //이거 안하면 저장 안돼
 
-                        Intent intent=new Intent(WelcomActivity.this, MainActivity.class);
+                        Intent intent=new Intent(WelcomeActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
                     }
@@ -135,4 +135,4 @@ public class WelcomActivity extends AppCompatActivity {
     }
 
 
-}//end of WelcomActivity
+}//end of WelcomeActivity

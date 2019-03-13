@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -78,6 +79,28 @@ public class MainActivity extends AppCompatActivity {
 
 
     }//end of onCreate
+
+//    //앱션바에 있는 서치 눌렀을 때
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.search_menu,menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
+//
+//    //앱바의 액션을 클릭하면 호출되는 메소드
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()){
+//            case R.id.menu_search:
+//                Intent intent=new Intent(this, SearchActivity.class);
+//                startActivity(intent);
+//                return true;
+//
+//                default:
+//                    return super.onOptionsItemSelected(item);
+//        }
+//
+//    }
 
     class navigationItemSelectedListener implements NavigationView.OnNavigationItemSelectedListener {
 

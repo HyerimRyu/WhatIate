@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/launching_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".MemoActivity"></activity>
         <activity android:name=".IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,11 +17,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".AddActivity" />
-        <activity android:name=".SearchActivity" />
+
+        <activity android:name=".SearchActivity"
+            android:parentActivityName=".MainActivity"/>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity"/>
+
         <activity android:name=".DetailPicActivity" />
-        <activity android:name=".WelcomActivity"></activity>
+        <activity android:name=".WelcomeActivity" />
     </application>
 
 </manifest>
