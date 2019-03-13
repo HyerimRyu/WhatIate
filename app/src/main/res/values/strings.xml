@@ -8,6 +8,10 @@
     <!--Drawer-->
     <string name="account">내 계정</string>
     <string name="favlist">My List</string>
+    <string name="whatieat">오늘 뭐 먹지?</string>
+    <string name="setting">Setting</string>
+
+
     <string name="food_korean">한식</string>
     <string name="food_chinese">중식</string>
     <string name="food_japanese">일식</string>

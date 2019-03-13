@@ -3,42 +3,45 @@
 
     <group android:id="@+id/g1_Account">
         <item
-            android:id="@+id/drawerMenu1_myAccount"
+            android:id="@+id/d1_myAccount"
             android:title="@string/account"/>
         <item
-            android:id="@+id/whatIeat"
-            android:title="오늘 뭐 먹지?"/>
+            android:id="@+id/d2whatIeat"
+            android:title="@string/whatieat"/>
         <item
-            android:id="@+id/drawerMenu2_favList"
+            android:id="@+id/d3MyList"
             android:title="@string/favlist"/>
+        <item
+            android:id="@+id/d4Setting"
+            android:title="@string/setting"/>
     </group>
 
 
     <group android:id="@+id/g2_Food">
-        <item
-            android:id="@+id/drawerMenu3_foodKorean"
-            android:title="@string/food_korean"/>
-        <item
-            android:id="@+id/drawerMenu4_foodChinese"
-            android:title="@string/food_chinese"/>
-        <item
-            android:id="@+id/drawerMenu4_foodJapanese"
-            android:title="@string/food_japanese"/>
-        <item
-            android:id="@+id/drawerMenu4_foodWestern"
-            android:title="@string/food_western"/>
-        <item
-            android:id="@+id/drawerMenu4_foodSchoolFood"
-            android:title="@string/food_school"/>
-    </group>
+        <!--<item-->
+            <!--android:id="@+id/drawerMenu3_foodKorean"-->
+            <!--android:title="@string/food_korean"/>-->
+        <!--<item-->
+            <!--android:id="@+id/drawerMenu4_foodChinese"-->
+            <!--android:title="@string/food_chinese"/>-->
+        <!--<item-->
+            <!--android:id="@+id/drawerMenu4_foodJapanese"-->
+            <!--android:title="@string/food_japanese"/>-->
+        <!--<item-->
+            <!--android:id="@+id/drawerMenu4_foodWestern"-->
+            <!--android:title="@string/food_western"/>-->
+        <!--<item-->
+            <!--android:id="@+id/drawerMenu4_foodSchoolFood"-->
+            <!--android:title="@string/food_school"/>-->
+    <!--</group>-->
 
-    <group android:id="@+id/g3_Drink">
-       <item
-            android:id="@+id/drawerMenu4_foodCafe"
-            android:title="@string/cafe"/>
-        <item
-            android:id="@+id/drawerMenu4_foodPub"
-            android:title="@string/pub"/>
+    <!--<group android:id="@+id/g3_Drink">-->
+       <!--<item-->
+            <!--android:id="@+id/drawerMenu4_foodCafe"-->
+            <!--android:title="@string/cafe"/>-->
+        <!--<item-->
+            <!--android:id="@+id/drawerMenu4_foodPub"-->
+            <!--android:title="@string/pub"/>-->
     </group>
 
 

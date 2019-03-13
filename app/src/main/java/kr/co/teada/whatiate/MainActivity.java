@@ -11,20 +11,14 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.SearchView;
-import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
-
-import static kr.co.teada.whatiate.R.string.app_name;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -109,20 +103,30 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
             //Drawer 눌렀을 때 반응
-//            switch ( menuItem.getItemId() ){
-//
-//                case R.id.boomark:
-//                    Intent intent= new Intent( MainActivity.this, BookmarkActivity.class);
-//                    startActivity(intent);
-//                    break;
-//
-//                case R.id.setting:
-//                    intent= new Intent( MainActivity.this, SettingActivity.class);
-//                    startActivity(intent);
-//                    break;
-//
-//
-//            }
+            switch ( menuItem.getItemId() ){
+
+                case R.id.d1_myAccount:
+                    Intent intent= new Intent( MainActivity.this, D1_MyAccountActivity.class);
+                    startActivity(intent);
+                    break;
+
+                case R.id.d2whatIeat:
+                    intent= new Intent( MainActivity.this, D2_WhatIEatActivity.class);
+                    startActivity(intent);
+                    break;
+
+                case R.id.d3MyList:
+                    intent= new Intent( MainActivity.this, D3_MyListActivity.class);
+                    startActivity(intent);
+                    break;
+
+                case R.id.d4Setting:
+                    intent= new Intent( MainActivity.this, D4_SettingActivity.class);
+                    startActivity(intent);
+                    break;
+
+
+            }
             drawerLayout.closeDrawer( navigationView );
             return false;
 
