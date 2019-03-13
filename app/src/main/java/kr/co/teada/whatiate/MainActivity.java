@@ -3,6 +3,7 @@ package kr.co.teada.whatiate;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,12 +14,18 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
+
+    //DrawerHeader의 2개 welcome과 연결
+    CircleImageView dProfileImg;
+    TextView dNickName;
 
 
 
@@ -66,6 +77,12 @@ public class MainActivity extends AppCompatActivity {
         drawerToggle=new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.app_name, R.string.app_name);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
+
+        //Drawer 네비에 프로필이랑 닉네임 연동
+        dProfileImg=findViewById(R.id.ivDrawerHeader);
+        dNickName=findViewById(R.id.tvDrawerNickName);
+
+
 
 
 //        String iVDrawerProfile=G.profileUrl;
@@ -121,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.d4Setting:
-                    intent= new Intent( MainActivity.this, D4_SettingActivity.class);
+                    intent= new Intent( MainActivity.this, D4_SettingsActivity.class);
                     startActivity(intent);
                     break;
 

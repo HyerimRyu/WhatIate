@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/launching_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".D4_SettingActivity"></activity>
+        <activity
+            android:name=".D4_SettingsActivity"
+            android:label="@string/title_activity_d4__settings"></activity>
+        <activity android:name=".D4_SettingActivity" />
         <activity android:name=".D2_WhatIEatActivity" />
         <activity android:name=".D1_MyAccountActivity" />
         <activity android:name=".D3_MyListActivity" />

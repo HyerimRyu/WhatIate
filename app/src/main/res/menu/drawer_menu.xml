@@ -11,6 +11,10 @@
         <item
             android:id="@+id/d3MyList"
             android:title="@string/favlist"/>
+    </group>
+
+
+    <group>
         <item
             android:id="@+id/d4Setting"
             android:title="@string/setting"/>

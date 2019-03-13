@@ -11,6 +11,8 @@ public class D1_MyAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_d1_my_account);
 
+
+
         Toast.makeText(this, "D1. 서비스 준비중", Toast.LENGTH_SHORT).show();
     }
 }
