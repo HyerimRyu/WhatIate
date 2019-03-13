@@ -1,6 +1,7 @@
 package kr.co.teada.whatiate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,22 +15,31 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Uri imgUri;
+    private Uri imgUri; //fab 의 선택된 이미지
+    ImageView iv_add_photo_img; //addAct 의 이미지뷰
 
     RecyclerView recyclerView;
     ArrayList<PicItem> picItems=new ArrayList<>();
@@ -40,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
 
     DatabaseReference databaseReference;
+
 
     //Drawer
     DrawerLayout drawerLayout;
@@ -82,14 +93,25 @@ public class MainActivity extends AppCompatActivity {
         dProfileImg=findViewById(R.id.ivDrawerHeader);
         dNickName=findViewById(R.id.tvDrawerNickName);
 
-
-
-
-//        String iVDrawerProfile=G.profileUrl;
-//        String tvDrawerNickName=G.nickName;
-
-
+        iv_add_photo_img=findViewById(R.id.iv_add_photo_img);
     }//end of onCreate
+
+
+    public void clickBtnSearch(View view) {
+
+        Intent intent=new Intent(this,SearchActivity.class);
+        startActivity(intent);
+        finish();
+
+    }
+
+
+    // + 버튼 누르면, 갤러리에서 사진 고르고, add 액티비티 실행
+    public void clickBtnFab(View view) {
+        //갤러리 이동
+        openGallery();
+    }
+
 
 //    //앱션바에 있는 서치 눌렀을 때
 //    @Override
@@ -153,43 +175,75 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        public void clickBtnSearch(View view) {
-
-        Intent intent=new Intent(this,SearchActivity.class);
-        startActivity(intent);
-        finish();
-
-    }
-
-
-    // + 버튼 누르면, 갤러리에서 사진 고르고, add 액티비티 실행
-    public void clickBtnFab(View view) {
-        //갤러리 이동
-        openGallery();
-
-        Intent intent=new Intent(this, AddActivity.class);
-        startActivity(intent);
-        finish();
-
-
-
-    }
-
     //갤러리 열어
     public void openGallery(){
+
         Intent photoPicintent=new Intent(Intent.ACTION_PICK);
         photoPicintent.setType("image/*");
         startActivityForResult(photoPicintent, 10);
-
-        saveData();
-
-        //Intent 불러서 upload Activity ->et
     }
 
-    //파이어베이스에 데이터 저장
-    public void saveData(){
+    //사진 선택 하면!! ********* request code 받고 작업
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 10:
+                if (resultCode==RESULT_OK){
 
+                    //addAc 계속 반복됨 수정하기
+                    Intent intent=new Intent(MainActivity.this, AddActivity.class);
+                    startActivity(intent);
+
+                    imgUri=data.getData(); //-----> 갤러리에서 선택한 사진 저장
+                    //Picasso.get().load(imgUri).into(iv_add_photo_img);
+                }
+                break;
+        }
     }
+
+//    //파이어베이스에 데이터 저장 확인!
+//    public void saveData(){
+//        if (imgUri == null) return;
+//
+//        FirebaseStorage firebaseStorage=FirebaseStorage.getInstance();
+//
+//        SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
+//        String fileName=sdf.format(new Date())+".png";
+//
+//        final StorageReference foodPicStorageImgRef=firebaseStorage.getReference("whatIateImages/"+fileName);
+//
+//        //이미지 업로드
+//        UploadTask uploadTask=foodPicStorageImgRef.putFile(imgUri);
+//        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//            @Override
+//            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                //이미지 업로드 성공, 업로드된 이미지의 주소 얻어오기
+//                foodPicStorageImgRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                    @Override
+//                    public void onSuccess(Uri uri) {
+//                        //firebase 저장소에 있는 이미지의 다운로드 주소를 문자열로
+//                        G.pickImage=uri.toString();
+//                        Toast.makeText(MainActivity.this, "이미지 저장 완료", Toast.LENGTH_SHORT).show();
+//
+//                        //firebase DB에 저장(위에는 storage)
+//                        FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
+//                        DatabaseReference foodPicDBRef=firebaseDatabase.getReference("foodPics");
+//
+//                        foodPicDBRef.child(G.pickImage);
+//
+//
+//
+//                        Intent intent=new Intent(MainActivity.this, AddActivity.class);
+//                        startActivity(intent);
+//
+//                    }
+//                });
+//            }
+//        });
+//
+//
+//    }
 
 }//end of  MainActivity

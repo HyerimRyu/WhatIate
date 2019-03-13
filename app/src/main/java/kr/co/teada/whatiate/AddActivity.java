@@ -47,54 +47,11 @@ public class AddActivity extends AppCompatActivity {
 
         addRef=FirebaseDatabase.getInstance().getReference("addUpload");
 
+        //addAct 2번 실행됨 ->코드 수정 필요 : Intent 가 결과 가져오는거 : 현재 코드상으로는 AddAct에 갤러리에서 선택한 이미지가 붙기는 한다
         Intent photoPicIntent=new Intent(Intent.ACTION_PICK);
         photoPicIntent.setType("image/*");
         startActivityForResult(photoPicIntent,10);
-
-        saveData();
-
-
     }//end of onCreate
-
-    //여기가 중요!!! 3가지 저장 하고 계속 불러오기
-    private void saveData() {
-        //선택한 이미지, resName, content 저장
-        if (imgUri==null) return;
-
-        firebaseStorage=FirebaseStorage.getInstance();
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyyMMddhhmmss");
-        String fileName=simpleDateFormat.format(new Date())+".png";
-
-        final StorageReference imgRef=firebaseStorage.getReference("foodPicPhotos/"+fileName);
-
-        //image Upload --->uploadTask
-        UploadTask uploadTask=imgRef.putFile(imgUri);
-        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                //업로드 성공 업로드된 이미지의 다운로드 주소(URL) 얻어오기
-                imgRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        //파이어베이스 저장소에 있는 이미지의 다운로드 주소 문자열로
-                        G.pickImage=uri.toString();
-                        Toast.makeText(AddActivity.this, "이미지 저장 완료", Toast.LENGTH_SHORT).show();
-
-                        //firebase DB 에 저장! 석세스 안의 석세스에서 작업
-                        firebaseDatabase=FirebaseDatabase.getInstance();
-                        //"foodPic" 이라는 자식노드 참
-                        DatabaseReference foodPicRef=firebaseDatabase.getReference("foodPic");
-                        DatabaseReference resNameRef=firebaseDatabase.getReference("resName");
-                        DatabaseReference textCommentRef=firebaseDatabase.getReference("comment");
-
-                    }
-                });
-            }
-        });
-
-
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -112,10 +69,53 @@ public class AddActivity extends AppCompatActivity {
 
     //사진 올리기 버튼 누르면 --> 메인의 recycler 뷰에 업로드 버튼
     public void clickUpload(View view) {
-        String foodPic_Url=G.pickImage;
+        //파아이 베이스 DB 에 사진, 이름, 내용 다 저장 통째로
+        saveData();
+    }
+
+    //    //파이어베이스에 데이터 저장 확인!
+    public void saveData(){
+        if (imgUri == null) return;
+
+        FirebaseStorage firebaseStorage=FirebaseStorage.getInstance();
+
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
+        String fileName=sdf.format(new Date())+".png";
+
+        final StorageReference foodPicStorageImgRef=firebaseStorage.getReference("whatIateImages/"+fileName);
+
+        //이미지 업로드
+        UploadTask uploadTask=foodPicStorageImgRef.putFile(imgUri);
+        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                //이미지 업로드 성공, 업로드된 이미지의 주소 얻어오기
+                foodPicStorageImgRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        //firebase 저장소에 있는 이미지의 다운로드 주소를 문자열로
+                        G.pickImage=uri.toString();
+                        Toast.makeText(AddActivity.this, "이미지 저장 완료", Toast.LENGTH_SHORT).show();
+
+                        //firebase DB에 저장(위에는 storage)
+                        FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
+                        DatabaseReference foodPicDBRef=firebaseDatabase.getReference("foodPics");
+
+                        foodPicDBRef.child(G.pickImage);
+
+
+
+                        Intent intent=new Intent(AddActivity.this, MainActivity.class);
+                        startActivity(intent);
+
+                    }
+                });
+            }
+        });
 
 
     }
+
 
 
 

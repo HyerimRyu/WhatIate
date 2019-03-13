@@ -24,7 +24,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
             android:layout_alignParentTop="true"
             app:layout_scrollFlags="scroll"
@@ -42,7 +42,7 @@
                     android:layout_centerInParent="true"
                     android:text="What I ate"
                     android:textColor="@color/colorWhite"
-                    android:textSize="30sp"/>
+                    android:textSize="24sp"/>
 
                 <!--서치버튼-->
                 <ImageView
@@ -52,7 +52,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="22dp"
-                    android:src="@drawable/btn_search"
+                    app:srcCompat="@drawable/btn_search"
                     android:onClick="clickBtnSearch"/>
 
 
@@ -62,6 +62,11 @@
     </android.support.design.widget.AppBarLayout>
     
     <!--내용-->
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+
 
     <!--recyclerView *layoutManager-->
     <android.support.v7.widget.RecyclerView
@@ -79,14 +84,18 @@
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_margin="16dp"
         app:fabSize="normal"
-        android:src="@drawable/btn_add"
+        app:srcCompat="@drawable/btn_add"
         android:backgroundTint="@color/colorPrimary"
         android:onClick="clickBtnFab"/>
 
+       </RelativeLayout>
    </LinearLayout>
+
+
 
 
     <android.support.design.widget.NavigationView
@@ -98,5 +107,7 @@
         app:menu="@menu/drawer_menu">
 
     </android.support.design.widget.NavigationView>
+
+
 
 </android.support.v4.widget.DrawerLayout>
