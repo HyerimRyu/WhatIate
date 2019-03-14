@@ -3,12 +3,14 @@
 
     <!--welcome-->
     <string name="welcome">반갑습니다!</string>
+    <string name="nickWelcome">nickName 님! 반갑습니다!</string>
     <string name="welcome_text">내 계정에서 사용할\n닉네임과 프로필 사진을\n설정해주세요.</string>
 
     <!--Drawer-->
     <string name="account">내 계정</string>
     <string name="favlist">My List</string>
     <string name="whatieat">오늘 뭐 먹지?</string>
+    <string name="grid">모아보기</string>
     <string name="setting">Setting</string>
 
 
@@ -19,6 +21,14 @@
     <string name="food_school">분식</string>
     <string name="cafe">카페</string>
     <string name="pub">펍</string>
+
+    <!--Account-->
+    <string name="acc_post">게시물</string>
+    <string name="acc_ate">먹은거</string>
+    <string name="acc_eat">먹을거</string>
+    <string name="acc_like">좋아요</string>
+    <string name="acc_profile">Profile</string>
+    <string name="acc_count_0">0</string>
 
     <!--Add Photo-->
     <string name="upload_image">사진 올리기</string>
@@ -33,9 +43,14 @@
 
     <!--Toolbar-->
     <string name="back">Back</string>
-
-
     <string name="next">다음</string>
+
+    <!--myList-->
+    <string name="activity_title_home">Memo</string>
+    <string name="no_memo">No Memo found!</string>
+    <string name="new_memo">Add Memo</string>
+    <string name="update_memo">Update Memo</string>
+    <string name="hint_memo">Enter your memo!</string>
 
     <!--searchView-->
     <string name="search_title">search</string>

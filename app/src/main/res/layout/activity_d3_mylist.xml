@@ -7,19 +7,20 @@
     android:background="#ffffffff"
     tools:context=".D3_MyListActivity">
 
-    <RelativeLayout
-        android:id="@+id/memoTitleLayout"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/empty_memo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true">
-    </RelativeLayout>
-
-    <ListView
-        android:id="@+id/memoList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/memoTitleLayout">
-
-    </ListView>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/top_no_memo"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/no_memo"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="@dimen/margin_no_memo" />
 
 </RelativeLayout>

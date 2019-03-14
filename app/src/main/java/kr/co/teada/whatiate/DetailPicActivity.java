@@ -18,7 +18,7 @@ public class DetailPicActivity extends AppCompatActivity {
         ivDetail=findViewById(R.id.ivDetail);
 
         //이미지 클릭시 디테일은 Myadapter 에서 작업
-
+        //인텐트 객체가 전달되어 왔어 이 객체가 데이터 갖고 있어
         Intent intent=getIntent();
         String name=intent.getStringExtra("Name");
         int imgId=intent.getIntExtra("Img", -1);

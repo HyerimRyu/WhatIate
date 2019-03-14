@@ -68,6 +68,10 @@ public class SearchActivity extends AppCompatActivity {
 
     }//end of onCreate
 
+    //한글 초성검색
+
+
+
 
 
 }//end of SearchActivity

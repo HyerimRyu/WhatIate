@@ -11,6 +11,9 @@
         <item
             android:id="@+id/d3MyList"
             android:title="@string/favlist"/>
+        <item
+            android:id="@+id/d5Grid"
+            android:title="@string/grid"/>
     </group>
 
 

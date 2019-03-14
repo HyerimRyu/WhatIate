@@ -39,8 +39,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MainActivity extends AppCompatActivity {
 
     private Uri imgUri; //fab 의 선택된 이미지
-    ImageView iv_add_photo_img; //addAct 의 이미지뷰
+    ImageView iv_add_photo_img; //addAct 의 이미지뷰 피카소 안 쓰면 필요 없어
 
+    //리사이클러뷰 3개 필요 대량의 데이터, 뷰, 어댑터
     RecyclerView recyclerView;
     ArrayList<PicItem> picItems=new ArrayList<>();
     MyAdapter myAdapter;
@@ -164,6 +165,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     break;
 
+                case R.id.d5Grid:
+                    intent=new Intent(MainActivity.this, D5_GridActivity.class);
+                    startActivity(intent);
+                    break;
+
 
             }
             drawerLayout.closeDrawer( navigationView );
@@ -202,48 +208,5 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
-
-//    //파이어베이스에 데이터 저장 확인!
-//    public void saveData(){
-//        if (imgUri == null) return;
-//
-//        FirebaseStorage firebaseStorage=FirebaseStorage.getInstance();
-//
-//        SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
-//        String fileName=sdf.format(new Date())+".png";
-//
-//        final StorageReference foodPicStorageImgRef=firebaseStorage.getReference("whatIateImages/"+fileName);
-//
-//        //이미지 업로드
-//        UploadTask uploadTask=foodPicStorageImgRef.putFile(imgUri);
-//        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//            @Override
-//            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                //이미지 업로드 성공, 업로드된 이미지의 주소 얻어오기
-//                foodPicStorageImgRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//                    @Override
-//                    public void onSuccess(Uri uri) {
-//                        //firebase 저장소에 있는 이미지의 다운로드 주소를 문자열로
-//                        G.pickImage=uri.toString();
-//                        Toast.makeText(MainActivity.this, "이미지 저장 완료", Toast.LENGTH_SHORT).show();
-//
-//                        //firebase DB에 저장(위에는 storage)
-//                        FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
-//                        DatabaseReference foodPicDBRef=firebaseDatabase.getReference("foodPics");
-//
-//                        foodPicDBRef.child(G.pickImage);
-//
-//
-//
-//                        Intent intent=new Intent(MainActivity.this, AddActivity.class);
-//                        startActivity(intent);
-//
-//                    }
-//                });
-//            }
-//        });
-//
-//
-//    }
 
 }//end of  MainActivity

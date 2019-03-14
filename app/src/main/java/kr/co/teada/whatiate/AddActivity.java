@@ -23,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AddActivity extends AppCompatActivity {
+    //액티비티 말고 다이얼로그로 시도해보기
 
     private Uri imgUri; //갤러리에 선택한 이미지의 uri
 
@@ -62,6 +63,11 @@ public class AddActivity extends AppCompatActivity {
                 if (resultCode ==RESULT_OK){
                     imgUri=data.getData();
                     Picasso.get().load(imgUri).into(ivAddPhotoImg);
+
+
+
+                    //MyAdapter 어댑터에게 노티파이 =--> 데이터 바꼈다
+
                 }
                 break;
         }
@@ -73,8 +79,13 @@ public class AddActivity extends AppCompatActivity {
         saveData();
     }
 
-    //    //파이어베이스에 데이터 저장 확인!
+
+
+
+
+    //파이어베이스에 데이터 저장 확인!
     public void saveData(){
+        //저장할 내용: 이미지, 식당명, 느낌 --> 변수로 받아서 클래스 통째로 저장
         if (imgUri == null) return;
 
         FirebaseStorage firebaseStorage=FirebaseStorage.getInstance();

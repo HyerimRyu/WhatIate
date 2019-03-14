@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/launching_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".D5_GridActivity"></activity>
         <activity
             android:name=".D4_SettingsActivity"
-            android:label="@string/title_activity_d4__settings"></activity>
+            android:label="@string/title_activity_d4__settings" />
         <activity android:name=".D4_SettingActivity" />
         <activity android:name=".D2_WhatIEatActivity" />
         <activity android:name=".D1_MyAccountActivity" />
@@ -24,8 +25,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".AddActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".AddActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SearchActivity"
             android:parentActivityName=".MainActivity" />

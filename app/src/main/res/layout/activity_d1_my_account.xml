@@ -1,9 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".D1_MyAccountActivity">
+    tools:context=".D1_MyAccountActivity"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <!--프로필 & 카운트 인포-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+        <!--프로필 이미지-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_account_profile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/acc_profile"
+            android:src="@drawable/profile_img"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/tvAccountWelcomeNick"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" -->
+            <!--android:text="@string/nickWelcome"-->
+            <!--android:layout_toRightOf="@+id/iv_profile"/>-->
+
+        <Button
+            android:id="@+id/btn_account_modify"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/iv_account_profile"
+            android:layout_marginRight="32dp"
+            android:text="@string/acc_profile"
+            android:theme="@style/Widget.AppCompat.Button"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/btn_account_modify"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/iv_account_profile"
+            android:baselineAligned="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!--게시글-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!--먹은거 카운트-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/acc_ate"/>
+
+                <TextView
+                    android:id="@+id/tv_account_ate_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/acc_count_0"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <!--먹을거 카운트-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/acc_eat"/>
+
+                <TextView
+                    android:id="@+id/tv_account_eat_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/acc_count_0"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <!--좋아요-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_marginLeft="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/acc_like"/>
+
+                <TextView
+                    android:id="@+id/tv_account_like_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/acc_count_0"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="버튼1"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="버튼2"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="버튼3"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="버튼4"
+            android:layout_marginBottom="8dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
